@@ -1,8 +1,6 @@
 package trivago.pages;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.core.util.Assert;
-import org.assertj.core.api.AbstractBooleanAssert;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import trivago.models.GuestAndRooms;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -22,6 +19,9 @@ public class HomePage extends BasePage {
     private WebElement cookiePopup;
     @FindBy(id = "onetrust-accept-btn-handler")
     private WebElement allowCookies;
+
+    @FindBy(css= "[data-testid='header-login']")
+    private WebElement loginBtn;
 
     @FindBy(css = "[data-testid='search-form-destination']")
     private WebElement destination;
@@ -97,6 +97,10 @@ public class HomePage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(allowCookies)).click();
     }
 
+    public void clickLoginBtn(){
+        loginBtn.click();
+    }
+
     public void setDestination(String destination) {
         this.destination.sendKeys(destination);
     }
@@ -156,19 +160,22 @@ public class HomePage extends BasePage {
         guestSelectorApply.click();
     }
 
-    public void getTop5HotelNames() throws InterruptedException {
-        Thread.sleep(30000); //Vanwege anti-bot protection
-
-        List<WebElement> resultList = driver.findElements(By.cssSelector("span[itemprop='name']"));
-
-        for (int i = 1; i < 6; i++) {
-            System.out.println(resultList.get(i).getText());
-        }
-    }
-
-
-
     public void doSearch() {
         searchButton.click();
     }
+
+    public void getTop5HotelNamesAndPrices() throws InterruptedException {
+        Thread.sleep(30000); //Vanwege anti-bot protection
+
+        List<WebElement> hotelList = driver.findElements(By.cssSelector("span[itemprop='name']"));
+        List<WebElement> priceList = driver.findElements(By.cssSelector("p[data-testid='recommended-price'"));
+
+        for (int i = 1; i < 6; i++) {
+                System.out.println("Hotel " + i + ": " + hotelList.get(i).getText() +
+                        "    " + priceList.get(i).getText());
+        }
+    }
+    //Bij de bovenstaande functie gaat iets nog niet helemaal goed. Hij pakt niet de top5, maar pakt van de bovenste
+    //3 verschillende prijzen lijkt het. Eventueel heten id's dus hetzelfde in de DOM
+    //Dit nog uitzoeken
 }

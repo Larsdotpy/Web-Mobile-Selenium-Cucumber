@@ -22,8 +22,8 @@ public class HomePageStepDefinitions extends CucumberScenario{
         scenarioContext.getDriver().get(Constants.homepage);
     }
 
-    @And("Cookie popup is shown")
-    public void CookiePopupIsShown() {
+    @And("Cookie popup is displayed")
+    public void CookiePopupIsDisplayed() {
         scenarioContext.getHomePage().cookiePopupIsDisplayed();
     }
 
@@ -73,8 +73,13 @@ public class HomePageStepDefinitions extends CucumberScenario{
 
     @And("The top {int} hotels are retrieved with their prices")
     public void theTopHotelsAreRetrievedWithTheirPrices(int top5) throws InterruptedException {
-        scenarioContext.getHomePage().getTop5HotelNames();
+        scenarioContext.getHomePage().getTop5HotelNamesAndPrices();
 
         //Nu nog de prijs die hoort bij het hotel toevoegen en DOOOOOOONE
+    }
+
+    @And("User clicks on login button")
+    public void userClicksOnLoginButton() {
+        scenarioContext.getHomePage().clickLoginBtn();
     }
 }
