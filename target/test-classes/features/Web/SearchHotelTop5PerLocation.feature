@@ -5,7 +5,7 @@ Feature: Search Hotel
   are returned in the console
 
     Given User navigates to the homepage
-    And Cookie popup is shown
+    And Cookie popup is displayed
     And User accepts cookie notification
     And User types "<bestemming>" and presses ENTER
     And User's arrival date is today

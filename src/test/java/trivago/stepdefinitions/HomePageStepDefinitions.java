@@ -75,11 +75,21 @@ public class HomePageStepDefinitions extends CucumberScenario{
     public void theTopHotelsAreRetrievedWithTheirPrices(int top5) throws InterruptedException {
         scenarioContext.getHomePage().getTop5HotelNamesAndPrices();
 
-        //Nu nog de prijs die hoort bij het hotel toevoegen en DOOOOOOONE
+        //Gaat nog iets mis, check functie van gettop5... voor details wat er mis gaat
     }
 
     @And("User clicks on login button")
     public void userClicksOnLoginButton() {
         scenarioContext.getHomePage().clickLoginBtn();
+    }
+
+    @When("User clicks on valuta options")
+    public void userClicksOnValutaOptions() {
+        scenarioContext.getHomePage().clickCurrenyMenu();
+    }
+
+    @Then("All valuta options must consist of valutaList")
+    public void allValutaOptionsMustConsistOfValutaList() {
+        scenarioContext.getHomePage().checkCurrenyMenu();
     }
 }

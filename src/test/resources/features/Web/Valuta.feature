@@ -3,8 +3,8 @@
     for valuta when clicked
 
   Scenario: Valuta options
-    Given User navigates to the main page
-    And Cookie pop up notification is shown
+    Given User navigates to the homepage
+    And Cookie popup is displayed
     And User accepts cookie notification
     When User clicks on valuta options
     Then All valuta options must consist of valutaList

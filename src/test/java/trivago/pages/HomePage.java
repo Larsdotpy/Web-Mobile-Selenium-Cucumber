@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import trivago.models.GuestAndRooms;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +24,16 @@ public class HomePage extends BasePage {
 
     @FindBy(css= "[data-testid='header-login']")
     private WebElement loginBtn;
+
+    @FindBy(id= "currency-selector")
+    private WebElement currencyMenu;
+
+    private final By currencyOptions = By.xpath("//*[@id=\"currency-selector\"]/optgroup[2]/option");
+    private final List<String> moneyType = Arrays.asList("AED", "ARS", "AUD", "AZN",
+            "BGN", "BHD", "BRL", "CAD", "CHF", "CLP", "CNY", "COP", "CZK", "DKK", "DZD", "EGP",
+            "EUR", "GBP", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "JOD", "JPY", "KRW", "KWD", "KZT",
+            "LBP", "MAD", "MDL", "MXN", "MYR", "NGN", "NOK", "NZD", "OMR", "PEN", "PHP", "PLN", "QAR", "RON",
+            "RSD", "RUB", "SAR", "SEK", "SGD", "THB", "TND", "TRY", "TWD", "UAH", "USD", "UYU", "VND", "ZAR");
 
     @FindBy(css = "[data-testid='search-form-destination']")
     private WebElement destination;
@@ -99,6 +111,29 @@ public class HomePage extends BasePage {
 
     public void clickLoginBtn(){
         loginBtn.click();
+    }
+
+    public void clickCurrenyMenu(){
+        currencyMenu.click();
+    }
+
+    public void checkCurrenyMenu(){
+        List<WebElement> Options = driver.findElements(currencyOptions);
+        System.out.println("Size: "+Options.size());
+
+        List<String> valutaList = new ArrayList<>();
+
+        for (WebElement element : Options
+        ) {
+            String i = element.getAttribute("value");
+            valutaList.add(i);
+        }
+
+        System.out.println("List on website" + valutaList);
+        System.out.println("List in database" + moneyType);
+
+        Assertions.assertThat(valutaList.containsAll(moneyType));
+
     }
 
     public void setDestination(String destination) {
