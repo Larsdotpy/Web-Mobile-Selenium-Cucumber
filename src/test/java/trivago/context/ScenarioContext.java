@@ -4,6 +4,7 @@ import lombok.Data;
 import org.openqa.selenium.WebDriver;
 import trivago.models.GuestAndRooms;
 import trivago.pages.HomePage;
+import trivago.pages.HotelSearchPage;
 import trivago.pages.LoginPage;
 
 import java.util.Date;
@@ -13,6 +14,7 @@ public class ScenarioContext {
     private WebDriver driver;
     private HomePage homePage;
     private LoginPage loginPage;
+    private HotelSearchPage hotelSearchPage;
     private String destination;
     private Date arrival;
     private Date departure;

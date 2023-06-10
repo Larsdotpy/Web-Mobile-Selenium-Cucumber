@@ -199,18 +199,5 @@ public class HomePage extends BasePage {
         searchButton.click();
     }
 
-    public void getTop5HotelNamesAndPrices() throws InterruptedException {
-        Thread.sleep(30000); //Vanwege anti-bot protection
 
-        List<WebElement> hotelList = driver.findElements(By.cssSelector("span[itemprop='name']"));
-        List<WebElement> priceList = driver.findElements(By.cssSelector("p[data-testid='recommended-price'"));
-
-        for (int i = 1; i < 6; i++) {
-                System.out.println("Hotel " + i + ": " + hotelList.get(i).getText() +
-                        "    " + priceList.get(i).getText());
-        }
-    }
-    //Bij de bovenstaande functie gaat iets nog niet helemaal goed. Hij pakt niet de top5, maar pakt van de bovenste
-    //3 verschillende prijzen lijkt het. Eventueel heten id's dus hetzelfde in de DOM
-    //Dit nog uitzoeken
 }

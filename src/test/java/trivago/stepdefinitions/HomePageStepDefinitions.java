@@ -71,13 +71,6 @@ public class HomePageStepDefinitions extends CucumberScenario{
         scenarioContext.getHomePage().doSearch();
     }
 
-    @And("The top {int} hotels are retrieved with their prices")
-    public void theTopHotelsAreRetrievedWithTheirPrices(int top5) throws InterruptedException {
-        scenarioContext.getHomePage().getTop5HotelNamesAndPrices();
-
-        //Gaat nog iets mis, check functie van gettop5... voor details wat er mis gaat
-    }
-
     @And("User clicks on login button")
     public void userClicksOnLoginButton() {
         scenarioContext.getHomePage().clickLoginBtn();
