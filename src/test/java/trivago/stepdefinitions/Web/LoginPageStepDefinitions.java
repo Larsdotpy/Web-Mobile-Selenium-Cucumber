@@ -1,11 +1,12 @@
-package trivago.stepdefinitions;
+package trivago.stepdefinitions.Web;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import trivago.context.ScenarioContext;
-import trivago.pages.LoginPage;
+import trivago.pages.Web.LoginPage;
+import trivago.stepdefinitions.CucumberScenario;
 
-public class LoginPageStepDefinitions extends CucumberScenario{
+public class LoginPageStepDefinitions extends CucumberScenario {
 
 
     private final LoginPage loginPage;

@@ -1,9 +1,10 @@
-package trivago.stepdefinitions;
+package trivago.stepdefinitions.Web;
 
 import io.cucumber.java.en.And;
 import trivago.context.ScenarioContext;
+import trivago.stepdefinitions.CucumberScenario;
 
-public class HotelSearchPageStepDefinitions extends CucumberScenario{
+public class HotelSearchPageStepDefinitions extends CucumberScenario {
     private final ScenarioContext scenarioContext;
 
     public HotelSearchPageStepDefinitions(ScenarioContext scenarioContext) {

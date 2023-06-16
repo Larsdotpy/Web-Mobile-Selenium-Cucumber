@@ -1,4 +1,4 @@
-package trivago.pages;
+package trivago.pages.Web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
@@ -29,7 +29,7 @@ public class LoginPage extends BasePage{
     }
 
     public void errorNotificiationIsDisplayed(){
-        Assertions.assertThat(errorNotification).isEqualTo("Voer je volledige e-mailadres in. Bijvoorbeeld: naam@voorbeeld.com");
+        Assertions.assertThat(errorNotification.getText()).isEqualTo("Voer je volledige e-mailadres in. Bijvoorbeeld: naam@voorbeeld.com");
     }
 
     public void errorNotificationIsOfdb3734HexValue(){

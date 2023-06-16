@@ -18,6 +18,5 @@ Feature: Search Hotel
     Examples:
       | bestemming  |     aantal dagen    | aantal volwassenen  | aantal kinderen | aantal kamers |
       | Rotterdam   |           8         |         5           |       5         |       3       |
-
-      #| Barcelona   | 3                   | 2               | 2             |
-      #| Rome        | 5                   | 0               | 3             |
+      | Barcelona   |           3         |         2           |       2         |       2       |
+      | Rome        |           5         |         12          |       3         |       6       |

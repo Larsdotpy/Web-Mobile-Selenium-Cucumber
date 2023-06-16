@@ -1,4 +1,4 @@
-package trivago.stepdefinitions;
+package trivago.stepdefinitions.Web;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -7,10 +7,12 @@ import io.cucumber.java.en.When;
 import trivago.config.Constants;
 import trivago.context.ScenarioContext;
 import trivago.models.GuestAndRooms;
+import trivago.stepdefinitions.CucumberScenario;
+
 import java.util.Calendar;
 import java.util.Date;
 
-public class HomePageStepDefinitions extends CucumberScenario{
+public class HomePageStepDefinitions extends CucumberScenario {
     private final ScenarioContext scenarioContext;
 
     public HomePageStepDefinitions(ScenarioContext scenarioContext) {
@@ -19,7 +21,7 @@ public class HomePageStepDefinitions extends CucumberScenario{
 
     @Given("User navigates to the homepage")
     public void iMOnTheHomepageOfTrivago() {
-        scenarioContext.getDriver().get(Constants.homepage);
+        scenarioContext.getWebDriver().get(Constants.homepage);
     }
 
     @And("Cookie popup is displayed")

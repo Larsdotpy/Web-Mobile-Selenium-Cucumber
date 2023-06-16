@@ -1,17 +1,22 @@
 package trivago.context;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
 import lombok.Data;
 import org.openqa.selenium.WebDriver;
 import trivago.models.GuestAndRooms;
-import trivago.pages.HomePage;
-import trivago.pages.HotelSearchPage;
-import trivago.pages.LoginPage;
+import trivago.pages.Mobile.MobileHomePage;
+import trivago.pages.Web.HomePage;
+import trivago.pages.Web.HotelSearchPage;
+import trivago.pages.Web.LoginPage;
 
 import java.util.Date;
 
 @Data
 public class ScenarioContext {
-    private WebDriver driver;
+    private WebDriver webDriver;
+    private AppiumDriver appiumDriver;
+    private AppiumDriverLocalService service;
     private HomePage homePage;
     private LoginPage loginPage;
     private HotelSearchPage hotelSearchPage;
@@ -19,6 +24,7 @@ public class ScenarioContext {
     private Date arrival;
     private Date departure;
     private GuestAndRooms guestAndRooms;
+    private MobileHomePage mobileHomePage;
 }
 
 

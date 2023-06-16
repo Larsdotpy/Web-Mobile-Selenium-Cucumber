@@ -1,8 +1,9 @@
-package trivago.pages;
+package trivago.pages.Web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -136,11 +137,11 @@ public class HomePage extends BasePage {
 
     }
 
-    public void setDestination(String destination) {
-        this.destination.sendKeys(destination);
+    public void setDestination(String destination){
+        this.destination.sendKeys(destination, Keys.RETURN);
     }
 
-    public void setArrival(Date arrival) {
+    public void setArrival(Date arrival){
         checkin.click();
         getDayWebElement(arrival).click();
     }

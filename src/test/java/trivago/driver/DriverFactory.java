@@ -1,5 +1,9 @@
 package trivago.driver;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -12,26 +16,31 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import trivago.enums.DriverType;
 
-import java.time.Duration;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.Objects;
+import java.util.Properties;
 import java.util.logging.Level;
 
-import static trivago.config.Constants.MAX_IMPLICIT_WAIT;
+import static io.appium.java_client.service.local.flags.GeneralServerFlag.LOG_LEVEL;
 
 @Slf4j
 @Data
 public class DriverFactory {
-    private DriverType driverType;
-    private WebDriver driver;
+    private WebDriver webDriver;
+    private AndroidDriver androidDriver;
+    private AppiumDriverLocalService service;
 
     public DriverFactory(@NotNull DriverType driverType) {
-        this.driverType = driverType;
         switch (driverType) {
             case CHROME -> createChromeDriver();
             case FIREFOX -> createFirefoxDriver();
+            case ANDROID -> createAndroidDriver();
             case EDGE -> createEdgeDriver();
             case SAFARI -> createSafariDriver();
         }
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(MAX_IMPLICIT_WAIT));
     }
 
     private void createChromeDriver() {
@@ -43,12 +52,12 @@ public class DriverFactory {
                 "window-size=1920,1080",
                 "ignore-certificate-errors",
                 "--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
+        webDriver = new ChromeDriver(options);
     }
 
     private void createFirefoxDriver() {
         WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
+        webDriver = new FirefoxDriver();
     }
 
     private void createEdgeDriver() {
@@ -61,7 +70,29 @@ public class DriverFactory {
         new SafariDriver();
     }
 
-    private void quitDriver() {
-        driver.quit();
+    private void createAndroidDriver(){
+        AppiumServiceBuilder serviceBuilder = new AppiumServiceBuilder()
+                .withArgument(LOG_LEVEL, "error");
+        this.service = AppiumDriverLocalService.buildService(serviceBuilder);
+        this.service.start();
+        File file;
+        File app;
+        Properties properties;
+        try {
+            file = new File(Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("android.local.properties")).toURI());
+            properties = new Properties();
+            properties.load(new FileInputStream(file));
+            app = new File(Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource(properties.getProperty("app"))).toURI());
+        } catch (URISyntaxException | IOException e) {
+            throw new RuntimeException(e);
+        }
+        UiAutomator2Options options = new UiAutomator2Options()
+                .setDeviceName(properties.getProperty("deviceName"))
+                .setApp(app.getAbsolutePath())
+                .eventTimings();
+        properties.remove("deviceName");
+        properties.remove("app");
+        properties.forEach((key, value) -> options.setCapability(key.toString(), value.toString()));
+        androidDriver = new AndroidDriver(service.getUrl(), options);
     }
 }
