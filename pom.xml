@@ -9,9 +9,6 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>19</maven.compiler.source>
-        <maven.compiler.target>19</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lombok.version>1.18.28</lombok.version>
         <log4j.version>2.20.0</log4j.version>
         <cucumber.version>7.12.1</cucumber.version>
@@ -21,7 +18,7 @@
         <webdivermanager.version>5.3.3</webdivermanager.version>
         <assertj.version>3.24.2</assertj.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
-        <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
         <maven-cucumber-reporting.version>5.7.5</maven-cucumber-reporting.version>
         <java.version>19</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -89,6 +86,10 @@
             <artifactId>cucumber-picocontainer</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-expressions</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-suite</artifactId>
             <scope>test</scope>
@@ -112,7 +113,7 @@
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>RELEASE</version>
+            <version>24.0.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -130,8 +131,8 @@
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <compilerArgs>--enable-preview</compilerArgs>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>19</source>
+                    <target>19</target>
                 </configuration>
             </plugin>
             <plugin>

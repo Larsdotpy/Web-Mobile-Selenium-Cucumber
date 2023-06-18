@@ -25,4 +25,8 @@ public abstract class MobileBasePage {
         public void clickButton(WebElement webElement) {
             wait.until(ExpectedConditions.visibilityOf(webElement)).click();
         }
+
+        public void isDisplayed(WebElement webElement){
+            wait.until(ExpectedConditions.visibilityOf(webElement));
+        }
 }

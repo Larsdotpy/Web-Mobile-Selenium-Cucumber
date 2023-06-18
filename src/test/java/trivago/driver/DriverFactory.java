@@ -4,22 +4,26 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 import trivago.enums.DriverType;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.time.Duration;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -32,6 +36,7 @@ public class DriverFactory {
     private WebDriver webDriver;
     private AndroidDriver androidDriver;
     private AppiumDriverLocalService service;
+
 
     public DriverFactory(@NotNull DriverType driverType) {
         switch (driverType) {
@@ -72,7 +77,13 @@ public class DriverFactory {
 
     private void createAndroidDriver(){
         AppiumServiceBuilder serviceBuilder = new AppiumServiceBuilder()
+                .withIPAddress("127.0.0.1")
+                .usingPort(4723)
+                .withArgument(GeneralServerFlag.BASEPATH, "/wd/hub")
+                .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+                .withTimeout(Duration.ofSeconds(60))
                 .withArgument(LOG_LEVEL, "error");
+
         this.service = AppiumDriverLocalService.buildService(serviceBuilder);
         this.service.start();
         File file;
