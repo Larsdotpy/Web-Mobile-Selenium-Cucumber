@@ -1,5 +1,5 @@
 # Trivago_Testframework
-Test framework for Trivago with tests for web and mobile. Currently focused on the dutch variant.
+Test framework for Trivago with tests for web and mobile. Currently focused on the dutch variant for web and the english variant for mobile.
 
 
 
