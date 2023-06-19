@@ -6,7 +6,7 @@ import io.cucumber.java.Scenario;
 import trivago.context.ScenarioContext;
 import trivago.driver.DriverFactory;
 import trivago.enums.DriverType;
-import trivago.pages.Mobile.MobileChromeBrowserPage;
+import trivago.pages.Mobile.MobileBrowserPage;
 import trivago.pages.Mobile.MobileHomePage;
 import trivago.pages.Mobile.MobileOnboardingPage;
 import trivago.pages.Mobile.MobileSettingsPage;
@@ -28,7 +28,7 @@ public class Hooks extends CucumberScenario {
     }
 
     @Before(value = "@Web")
-    public void initWeb() throws MalformedURLException {
+    public void initWeb() {
         DriverType driverType = DriverType.CHROME;
         if (!Objects.isNull(System.getProperty("browser")))
         {
@@ -52,7 +52,7 @@ public class Hooks extends CucumberScenario {
         scenarioContext.setMobileOnboardingPage(new MobileOnboardingPage(scenarioContext.getAppiumDriver()));
         scenarioContext.setMobileHomePage(new MobileHomePage(scenarioContext.getAppiumDriver()));
         scenarioContext.setMobileSettingsPage(new MobileSettingsPage(scenarioContext.getAppiumDriver()));
-        scenarioContext.setMobileChromeBrowserPage(new MobileChromeBrowserPage(scenarioContext.getAppiumDriver()));
+        scenarioContext.setMobileBrowserPage(new MobileBrowserPage(scenarioContext.getAppiumDriver()));
     }
 
     @After(value = "@Web")

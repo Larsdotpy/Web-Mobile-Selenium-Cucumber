@@ -5,7 +5,7 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import lombok.Data;
 import org.openqa.selenium.WebDriver;
 import trivago.models.GuestAndRooms;
-import trivago.pages.Mobile.MobileChromeBrowserPage;
+import trivago.pages.Mobile.MobileBrowserPage;
 import trivago.pages.Mobile.MobileHomePage;
 import trivago.pages.Mobile.MobileOnboardingPage;
 import trivago.pages.Mobile.MobileSettingsPage;
@@ -30,7 +30,7 @@ public class ScenarioContext {
     private MobileOnboardingPage mobileOnboardingPage;
     private MobileHomePage mobileHomePage;
     private MobileSettingsPage mobileSettingsPage;
-    private MobileChromeBrowserPage mobileChromeBrowserPage;
+    private MobileBrowserPage mobileBrowserPage;
 }
 
 
