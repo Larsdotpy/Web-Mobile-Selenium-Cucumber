@@ -13,12 +13,8 @@
 
 
 ##Project structure
-Trivago_Framework
-├── .idea
-├── src
-├── target   
-├── pom.xml   
-└── README.md
+
+....
 
 
 
