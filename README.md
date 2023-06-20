@@ -18,7 +18,7 @@
 
 ## Project setup
 
-### Clone this repository:
+### Clone this repository
 ```
 git clone https://github.com/Larsdotpy/Trivago_Testframework.git
 ```
