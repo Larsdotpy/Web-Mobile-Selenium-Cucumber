@@ -17,9 +17,8 @@
 ....
 
 
+## MVN test parameters
+No parameters: Default value, for web this means that the default browser (CHROME) will be selected. For mobile this means that the default OS (ANDROID) will be selected. The API test do not require a specific parameter for an agent. 
 
+.....
 
-Als je bij mvn test parameters in de terminal de browser leeg laat, dan pakt mvn automatisch de default waarde
-
-
-Bij uploaden naar GIT hoeft de target directory niet mee te worden gepushed.
