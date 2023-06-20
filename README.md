@@ -21,8 +21,9 @@
 ### Clone this repository:
 ```
 git clone https://github.com/Larsdotpy/Trivago_Testframework.git
-
 ```
+### Dependencies
+Check if all the dependencies in the pom.xml file are still up-to-date. If not, some errors might occur and the framework will either fail or not be running smoothly.
 
 ....
 
