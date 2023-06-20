@@ -29,6 +29,7 @@ Check if all the dependencies in the pom.xml file are still up-to-date. If not, 
 
 ## MVN test parameters
 No parameters: Default value, for web this means that the default browser (CHROME) will be selected. For mobile this means that the default OS (ANDROID) will be selected. The API tests do not require a specific parameter for an agent. 
+
 **Chrome**
 ```
 mvn test -Dbrowser=chrome -Dtest=RunWebTest
