@@ -16,6 +16,15 @@
 
 ....
 
+## Project setup
+
+### Clone this repository:
+```
+git clone https://github.com/Larsdotpy/Trivago_Testframework.git
+
+```
+
+....
 
 ## MVN test parameters
 No parameters: Default value, for web this means that the default browser (CHROME) will be selected. For mobile this means that the default OS (ANDROID) will be selected. The API test do not require a specific parameter for an agent. 
