@@ -1,6 +1,6 @@
 @Mobile
-Feature: Unsuccessful login
-  Scenario: User tries to login with invalid credentials and this results in an unsuccessful login
+Feature: Successful login
+  Scenario: User tries to login with valid credentials and this results in an successful login
 
     Given I start the Trivago app with english language settings
     And I accept the cookies

@@ -22,13 +22,13 @@ public class MobileOnboardingPage extends MobileBasePage{
     }
 
     public void clickConfirm() {
-        clickButton(btnConfirm);
+        clickElement(btnConfirm);
     }
     public void acceptCookies(){
-        clickButton(btnAcceptAll);
+        clickElement(btnAcceptAll);
     }
 
     public void skipPriceAlertsNotification(){
-        clickButton(btnSkipAlerts);
+        clickElement(btnSkipAlerts);
     }
 }

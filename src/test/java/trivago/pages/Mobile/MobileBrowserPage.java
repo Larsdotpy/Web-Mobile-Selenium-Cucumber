@@ -2,7 +2,6 @@ package trivago.pages.Mobile;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebElement;
 
@@ -32,21 +31,21 @@ public class MobileBrowserPage extends MobileBasePage{
     }
 
     public void inputValidEmail(){
-        clickButton(emailInputField);
+        clickElement(emailInputField);
         emailInputField.sendKeys("xmyjjubreazemcsfqu@tpwlb.com");
     }
 
     public void pressNext(){
-        clickButton(nextBtn);
+        clickElement(nextBtn);
     }
 
     public void inputValidPassword(){
-        clickButton(passwordInputField);
+        clickElement(passwordInputField);
         passwordInputField.sendKeys("ABCDEFGHIJKL123");
     }
 
     public void pressLoginBtn(){
-        clickButton(loginBtn);
+        clickElement(loginBtn);
     }
 
     public void checkSuccessfullyLoggedIn() throws InterruptedException {

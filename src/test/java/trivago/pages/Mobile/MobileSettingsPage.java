@@ -18,7 +18,7 @@ public class MobileSettingsPage extends MobileBasePage{
     }
 
     public void goToLoginScreen(){
-        clickButton(loginBtn);
+        clickElement(loginBtn);
     }
 
 }
