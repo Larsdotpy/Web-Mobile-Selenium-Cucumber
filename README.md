@@ -16,10 +16,36 @@
 
 ....
 
+## Project setup
 
+### Clone this repository
+```
+git clone https://github.com/Larsdotpy/Trivago_Testframework.git
+```
+### Dependencies
+Check if all the dependencies in the pom.xml file are still up-to-date. If not, some errors might occur and the framework will either fail or not be running smoothly.
 
+....
 
-Als je bij mvn test parameters in de terminal de browser leeg laat, dan pakt mvn automatisch de default waarde
+## MVN test parameters
+No parameters: Default value, for web this means that the default browser (CHROME) will be selected. For mobile this means that the default OS (ANDROID) will be selected. The API tests do not require a specific parameter for an agent. 
 
+**Chrome**
+```
+mvn test -Dbrowser=chrome -Dtest=RunWebTest
+```
+**Firefox**
+```
+mvn test -Dbrowser=firefox -Dtest=RunWebTest
+```
+**Android**
+```
+mvn test -Dbrowser=android -Dtest=RunAppTest
+```
+**iOS**
+```
+mvn test -Dbrowser=ios -Dtest=RunAppTest
+```
 
-Bij uploaden naar GIT hoeft de target directory niet mee te worden gepushed.
+.....
+
