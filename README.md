@@ -18,6 +18,11 @@
 
 ## Project setup
 
+### Android apk
+To use the most recent Trivago apk file, go to the following link: *https://www.apkmirror.com/apk/trivago/* 
+
+Remember to set the path correctly in the *android.local.properties* file, so the class createAndroidDriver understands which apk file to use. If this path is not included or set wrong, the tests will fail. 
+
 ### Clone this repository
 ```
 git clone https://github.com/Larsdotpy/Trivago_Testframework.git
