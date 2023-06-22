@@ -1,5 +1,5 @@
 # Trivago Test Framework
-`Test framework for Trivago with tests for web, mobile.`
+`Test framework for Trivago with tests for web & mobile.`
 
 ![Trivago_logo](https://1000logos.net/wp-content/uploads/2020/09/Trivago-logo.png)
 
