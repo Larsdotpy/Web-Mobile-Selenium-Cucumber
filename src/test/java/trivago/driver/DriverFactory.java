@@ -2,6 +2,7 @@ package trivago.driver;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
@@ -32,6 +33,7 @@ import static io.appium.java_client.service.local.flags.GeneralServerFlag.LOG_LE
 public class DriverFactory {
     private WebDriver webDriver;
     private AndroidDriver androidDriver;
+    private IOSDriver iosDriver;
     private AppiumDriverLocalService service;
 
 

@@ -37,6 +37,7 @@ public class Hooks extends CucumberScenario {
     @Before(value = "@Mobile")
     public void initApp() {
         DriverType driverType = DriverType.ANDROID;
+
         if (!Objects.isNull(System.getProperty("browser")))
         {
             driverType = DriverType.valueOf(System.getProperty("browser").toUpperCase());
