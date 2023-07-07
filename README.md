@@ -48,4 +48,18 @@ mvn test -Dbrowser=android -Dtest=RunTestMobile
 
 ## Project breakdown
 
+### Config
+
+#### Constants
+The Constants class contains variables that remain the same throughout the entire usage of the project. These variables are declared with the final keyword, so they are unable to be altered after creation. 
+
+## Context
+
+### ScenarioContext
+The ScenarioContext class, as the name suggests, gives context to the scenarios from the feature files. This means that inside this class pages and attributes get defined with getters and setters. This is done via the use of Lombok. Annotating the class with '@Data'. This makes the code less verbose and more readable. All the variables are declared with 'private' so that they cannot be changed inside other classfiles of the project. This is mainly for security reasons and prevents us from making any mistakes when expending the project code.
+
+## Driver
+
+### DriverFactory
+
 
